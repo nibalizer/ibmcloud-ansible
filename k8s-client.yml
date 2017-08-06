@@ -1,0 +1,35 @@
+
+- hosts: all
+  become: true
+  tasks:
+  - debug: msg="Installing k8s client utils"
+
+  - name: "Install git"
+    apt:
+      name: git
+      update_cache: yes
+
+  - git:
+      repo: 'https://github.com/kubernetes/kubernetes'
+      dest: /root/kubernetes
+
+  - name: Get k8s version
+    command: curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt
+    register: k8s_version
+     
+
+  - debug: msg="k8s version {{ k8s_version }}"
+
+  - name: Get kubectl
+    get_url:
+      url:  https://storage.googleapis.com/kubernetes-release/release/{{ k8s_version.stdout }}/bin/linux/amd64/kubectl
+      dest: /root/kubectl
+      mode: 0755
+
+
+  - name: Copy kubectl binary into place
+    copy:
+      src: /root/kubectl
+      dest: /usr/bin/kubectl
+      mode: 0755
+      remote_src: yes
