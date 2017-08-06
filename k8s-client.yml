@@ -4,9 +4,9 @@
   tasks:
   - debug: msg="Installing k8s client utils"
 
-  - name: "Install git"
+  - name: "Install curl"
     apt:
-      name: git
+      name: curl
       update_cache: yes
 
   - git:
@@ -16,7 +16,6 @@
   - name: Get k8s version
     command: curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt
     register: k8s_version
-     
 
   - debug: msg="k8s version {{ k8s_version }}"
 
