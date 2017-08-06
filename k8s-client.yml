@@ -9,10 +9,6 @@
       name: curl
       update_cache: yes
 
-  - git:
-      repo: 'https://github.com/kubernetes/kubernetes'
-      dest: /root/kubernetes
-
   - name: Get k8s version
     command: curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt
     register: k8s_version
