@@ -1,0 +1,33 @@
+
+
+- hosts: all
+  become: true
+  tasks:
+  - debug: msg="Installing k8s client utils"
+
+  - name: "Install git"
+    apt:
+      name: git
+      update_cache: yes
+
+  - file:
+      path: /srv/git
+      state: directory
+      mode: 0755
+
+  # Long list of software to keep around
+  - git:
+      repo: 'https://github.com/kubernetes/kubernetes'
+      dest: /srv/git/kubernetes
+
+  - git:
+      repo: 'https://github.com/moby/moby'
+      dest: /srv/git/moby
+
+  - file:
+      src: /srv/git/moby
+      dest: /srv/git/docker
+      owner: root
+      group: root
+      state: link
+
