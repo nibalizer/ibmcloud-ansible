@@ -1,0 +1,32 @@
+
+- hosts: all
+  become: true
+  tasks:
+  - debug: msg="Installing hashicorp utils"
+
+  - name: Get packer tarball
+    get_url:
+      url: 'https://releases.hashicorp.com/packer/1.0.3/packer_1.0.3_linux_amd64.zip'
+      dest: /root/packer_1.0.3_linux_amd64.zip
+      mode: 0755
+
+  - name: unzip packer
+    unarchive:
+      src: /root/packer_1.0.3_linux_amd64.zip
+      mode: 0755
+      dest: /root/
+      remote_src: yes
+
+  - name: Get terraform tarball
+    get_url:
+      url: 'https://releases.hashicorp.com/terraform/0.10.0/terraform_0.10.0_linux_amd64.zip'
+      dest: /root/terraform_0.10.0_linux_amd64.zip
+      mode: 0755
+
+  - name: unzip terraform
+    unarchive:
+      src: /root/terraform_0.10.0_linux_amd64.zip
+      mode: 0755
+      dest: /root/
+      remote_src: yes
+
