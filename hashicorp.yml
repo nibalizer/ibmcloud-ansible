@@ -4,6 +4,11 @@
   tasks:
   - debug: msg="Installing hashicorp utils"
 
+  - name: "Install unzip"
+    apt:
+      name: unzip
+      update_cache: yes
+
   - name: Get packer tarball
     get_url:
       url: 'https://releases.hashicorp.com/packer/1.0.3/packer_1.0.3_linux_amd64.zip'
@@ -19,7 +24,7 @@
 
   - name: Copy packer binary into place
     copy:
-      src: /root/packer/packer
+      src: /root/packer
       dest: /usr/bin/packer
       mode: 0755
       remote_src: yes
@@ -39,7 +44,7 @@
 
   - name: Copy terraform binary into place
     copy:
-      src: /root/terraform/terraform
+      src: /root/terraform
       dest: /usr/bin/terraform
       mode: 0755
       remote_src: yes
