@@ -26,3 +26,9 @@
       src: /root/Bluemix_CLI_0.5.5_amd64.tar.gz
       dest: /root/
       remote_src: yes
+
+  - name: install bluemix cli using provided script
+    command: /root/Bluemix_CLI/install_bluemix_cli
+
+  - name: configure bx cli to not send usage information
+    command: bluemix config --usage-stats-collect false
