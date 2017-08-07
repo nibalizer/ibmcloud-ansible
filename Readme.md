@@ -4,11 +4,14 @@ bluemix-ansible
 
 Ansible playbooks to install basic utils for working with bluemix: bx, kubectl, docker, cf, and several git repos.
 
-| Software | Org | command(s)  | version  |   |
+| Software | Org | command(s)  | version  |
 |--:|---|---|---|---|
-| Bluemix CLI  | IBM  | bx, bluemix  | latest  |   |
-| Kubernetes  | CNCF  | kubectl  | latest  |   |
-| Helm  | CNCF  | helm  | 2.5.1  | latest  |
+| Bluemix CLI  | IBM  | bx, bluemix  | latest  |
+| Kubernetes  | CNCF  | kubectl  | latest  |
+| Cloud Foundry | Cloud Foundry | cf | latest |
+| Moby | Moby | docker | latest  |
+| Packer | Hashicorp | packer | 1.0.3 |
+| Terraform | Hashicorp | terraform | 0.10.0 |
 
 
 This requires an ansible inventory file.
