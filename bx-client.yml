@@ -18,12 +18,12 @@
   - name: Get blumix cli tarball
     get_url:
       url: "https://public.dhe.ibm.com/cloud/bluemix/cli/bluemix-cli/Bluemix_CLI_{{ bx_version.stdout }}_amd64.tar.gz"
-      dest: /root/Bluemix_CLI_0.5.5_amd64.tar.gz
+      dest: /root/Bluemix_CLI_{{ bx_version.stdout }}_amd64.tar.gz
       mode: 0755
 
   - name: untar bx cli tarball
     unarchive:
-      src: /root/Bluemix_CLI_0.5.5_amd64.tar.gz
+      src: /root/Bluemix_CLI_{{ bx_version.stdout }}_amd64.tar.gz
       dest: /root/
       remote_src: yes
 
