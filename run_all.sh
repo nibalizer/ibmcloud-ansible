@@ -1,0 +1,11 @@
+#!/bin/bash
+
+if [ ! -f inventory ]; then
+    echo "Need inventory file"
+    exit 1
+fi
+
+ansible-playbook -i inventory k8s-client.yml
+ansible-playbook -i inventory bx-client.yml
+ansible-playbook -i inventory cf-client.yml
+ansible-playbook -i inventory git-repos.yml
