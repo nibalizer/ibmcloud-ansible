@@ -32,3 +32,11 @@
 
   - name: configure bx cli to not send usage information
     command: bluemix config --usage-stats-collect false
+
+  - name: install bluemix plugins
+    command: bluemix plugin install "{{ item }}" -r Bluemix
+    with_items:
+      - auto-scaling
+      - container-service
+      - container-registry
+      - cloud-functions
