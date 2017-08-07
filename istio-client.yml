@@ -1,0 +1,27 @@
+
+- hosts: all
+  become: true
+  tasks:
+  - debug: msg="Installing istioctl client util"
+
+
+  # Add istio tarball
+  - name: Get istio tarball
+    get_url:
+      url:  "https://github.com/istio/istio/releases/download/0.1.6/istio-0.1.6-linux.tar.gz"
+      dest: /root/istio-0.1.6-linux.tar.gz
+      mode: 0755
+
+  - name: unzip istio
+    unarchive:
+      src: /root/istio-0.1.6-linux.tar.gz
+      mode: 0755
+      dest: /root/
+      remote_src: yes
+
+  - name: Copy istio binary into place
+    copy:
+      src: /root/istio-0.1.6/bin/istioctl
+      dest: /usr/bin/istioctl
+      mode: 0755
+      remote_src: yes
