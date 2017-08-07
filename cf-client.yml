@@ -1,0 +1,23 @@
+
+- hosts: all
+  become: true
+  tasks:
+  - debug: msg="Installing cf client utils"
+
+  # Add cloud foundry key
+  - apt_key:
+      id: 56EFF9151B51ACD9A211A5A35733FEC050C212B6
+      url: "https://packages.cloudfoundry.org/debian/cli.cloudfoundry.org.key"
+      state: present
+
+  # Add cloud foundry repo
+  - apt_repository:
+      repo: deb http://packages.cloudfoundry.org/debian stable main
+      state: present
+      filename: 'cloudfoundry-cli'
+
+  - name: "Install cf utils"
+    apt:
+      name: cf-cli
+      update_cache: yes
+
