@@ -8,6 +8,7 @@ Ansible playbooks to install basic utils for working with bluemix: bx, kubectl, 
 |--:|---|---|---|
 | Bluemix CLI  | IBM  | bx, bluemix  | latest  |
 | Kubernetes  | CNCF  | kubectl  | latest  |
+| Helm | CNCF  | helm | latest  |
 | Cloud Foundry | Cloud Foundry | cf | latest |
 | Moby | Moby | docker | latest  |
 | Packer | Hashicorp | packer | 1.0.3 |
