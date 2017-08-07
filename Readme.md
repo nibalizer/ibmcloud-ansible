@@ -16,14 +16,15 @@ cat inventory
 Usage:
 
 ```shell
+./run_all.sh
+```
+
+or
+
+```shell
 ansible-playbook -i inventory k8s-client.yml
 ansible-playbook -i inventory bx-client.yml
 ansible-playbook -i inventory cf-client.yml
 ansible-playbook -i inventory git-repos.yml
 ```
 
-or
-
-```shell
-./run_all.sh
-```
