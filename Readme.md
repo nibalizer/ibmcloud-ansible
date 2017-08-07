@@ -2,7 +2,7 @@ bluemix-ansible
 --------------
 
 
-Ansible playbooks to install basic utils for working with bluemix: bx, kubectl, docker, cf, and several git repos.
+Ansible playbooks to install basic utils for working with bluemix: bx, kubectl, docker, cf, etc. This solves the problem of collecting and installing the client utilities which are typically distributed as binaries in tarballs available over https.
 
 | Software | Org | command(s)  | version  |
 |--:|---|---|---|
