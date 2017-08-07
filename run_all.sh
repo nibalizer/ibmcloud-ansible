@@ -10,4 +10,5 @@ ansible-playbook -i inventory bx-client.yml
 ansible-playbook -i inventory cf-client.yml
 ansible-playbook -i inventory docker.yml
 ansible-playbook -i inventory hashicorp.yml
+ansible-playbook -i inventory istio-client.yml
 ansible-playbook -i inventory git-repos.yml

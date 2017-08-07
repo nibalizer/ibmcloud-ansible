@@ -2,7 +2,16 @@ bluemix-ansible
 --------------
 
 
-Ansible playbooks to install basic utils for working with bluemix: bx, kubectl, docker, cf, and several git repos. This requires an ansible inventory file.
+Ansible playbooks to install basic utils for working with bluemix: bx, kubectl, docker, cf, and several git repos.
+
+| Software | Org | command(s)  | version  |   |
+|--:|---|---|---|---|
+| Bluemix CLI  | IBM  | bx, bluemix  | latest  |   |
+| Kubernetes  | CNCF  | kubectl  | latest  |   |
+| Helm  | CNCF  | helm  | 2.5.1  | latest  |
+
+
+This requires an ansible inventory file.
 
 Inventory:
 
@@ -27,6 +36,15 @@ ansible-playbook -i inventory bx-client.yml
 ansible-playbook -i inventory cf-client.yml
 ansible-playbook -i inventory docker.yml
 ansible-playbook -i inventory hashicorp.yml
+ansible-playbook -i inventory istio.yml
 ansible-playbook -i inventory git-repos.yml
+```
+
+
+To install only the bluemix cli:
+
+
+```shell
+ansible-playbook -i inventory bx-client.yml
 ```
 
