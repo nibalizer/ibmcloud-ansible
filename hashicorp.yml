@@ -17,6 +17,13 @@
       dest: /root/
       remote_src: yes
 
+  - name: Copy packer binary into place
+    copy:
+      src: /root/packer/packer
+      dest: /usr/bin/packer
+      mode: 0755
+      remote_src: yes
+
   - name: Get terraform tarball
     get_url:
       url: 'https://releases.hashicorp.com/terraform/0.10.0/terraform_0.10.0_linux_amd64.zip'
@@ -30,3 +37,9 @@
       dest: /root/
       remote_src: yes
 
+  - name: Copy terraform binary into place
+    copy:
+      src: /root/terraform/terraform
+      dest: /usr/bin/terraform
+      mode: 0755
+      remote_src: yes
