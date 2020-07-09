@@ -3,7 +3,7 @@ ibmcloud-ansible
 
 Ansible playbooks and utilities for working with the [IBM Cloud](https://cloud.ibm.com). Also see the [ansible-collection-ibm](https://github.com/IBM-Cloud/ansible-collection-ibm).
 
-Most require an ansible inventory file. We provide a dynamic inventory script for IBM Cloud VPC.
+Most require an ansible inventory file. We provide a [dynamic inventory script](https://github.com/nibalizer/ibmcloud-ansible#dynamic-inventory) for IBM Cloud VPC.
 
 Inventory:
 
@@ -129,7 +129,7 @@ Ansible playbooks to install basic developer utilities for working with bluemix:
 
 | Software | Org | command(s)  | version  |
 |--:|---|---|---|
-| Bluemix CLI  | IBM  | bx, bluemix  | latest  |
+| IBMCloud CLI  | IBM  | ibmcloud  | latest  |
 | Kubernetes  | CNCF  | kubectl  | latest  |
 | Helm | CNCF  | helm | latest  |
 | Cloud Foundry | Cloud Foundry | cf | latest |
@@ -159,7 +159,7 @@ or
 
 ```shell
 ansible-playbook -i inventory k8s-client.yml
-ansible-playbook -i inventory bx-client.yml
+ansible-playbook -i inventory ibmcloud-client.yml
 ansible-playbook -i inventory cf-client.yml
 ansible-playbook -i inventory docker.yml
 ansible-playbook -i inventory hashicorp.yml
