@@ -34,6 +34,21 @@ Usage:
 ansible-playbook -i inventory first-config.yml
 ```
 
+## `ibmcloud-client.yml`
+
+Description: This playbook will install the `ibmcloud` cli tool and several common plugins. User to install with is customizable.
+
+```shell
+ansible-playbook -i inventory ibmcloud-client.yml
+```
+
+> Note: `ibmcloud` plugins are installed per-user. If you want to install under your user do an override like this:
+
+```shell
+ansible-playbook -i inventory ibmcloud-client.yml --extra-vars "ibmcloud_unix_user=ubuntu"
+```
+
+
 ### Developer Utilities
 
 Ansible playbooks to install basic developer utilities for working with bluemix: bx, kubectl, docker, cf, etc. This solves the problem of collecting and installing the client utilities which are typically distributed as binaries in tarballs available over https.
@@ -78,11 +93,4 @@ ansible-playbook -i inventory istio.yml
 ansible-playbook -i inventory git-repos.yml
 ```
 
-
-To install only the bluemix cli:
-
-
-```shell
-ansible-playbook -i inventory bx-client.yml
-```
 

@@ -1,0 +1,42 @@
+
+- hosts: all
+  become: true
+  vars:
+    ibmcloud_unix_user: "root"
+  tasks:
+  - debug: msg="Installing ibmcloud client utility and plugins"
+
+  - name: "Install jq"
+    apt:
+      name: jq
+      update_cache: yes
+
+
+  - name: Get ibmcloud cli tarball
+    get_url:
+      url: "https://clis.ng.bluemix.net/download/bluemix-cli/latest/linux64"
+      dest: /root/linux64.tar.gz
+      mode: 0755
+
+  - name: Untar ibmcloud cli tarball
+    unarchive:
+      src: /root/linux64.tar.gz
+      dest: /root/
+      remote_src: yes
+
+  - name: install ibmcloud cli using provided script
+    command: /root/Bluemix_CLI/install_bluemix_cli
+
+  - name: configure ibmcloud cli to not send usage information
+    become_user: " {{ ibmcloud_unix_user }} "
+    command: ibmcloud config --usage-stats-collect false
+
+  - name: install ibmcloud plugins
+    command: ibmcloud plugin install "{{ item }}" -r Bluemix
+    become_user: " {{ ibmcloud_unix_user }} "
+    with_items:
+      - kubernetes-service
+      - cloud-functions
+      - container-registry
+      - vpc-infrastructure
+      - cloud-object-storage
