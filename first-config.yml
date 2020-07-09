@@ -1,0 +1,17 @@
+# requires galaxy roles:
+# - willshersystems.sshd (https://galaxy.ansible.com/willshersystems/sshd)
+
+# run before:
+# ansible-galaxy init
+# ansible-galaxy install willshersystems.sshd
+---
+- hosts: all
+  become: yes
+  vars:
+    sshd:
+      GSSAPIAuthentication: no
+      ChallengeResponseAuthentication: no
+      PasswordAuthentication: no
+      PermitRootLogin: no
+  roles:
+    - role: willshersystems.sshd
