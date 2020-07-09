@@ -1,8 +1,42 @@
-bluemix-ansible
+ibmcloud-ansible
 --------------
 
+Ansible playbooks and utilities for working with the [IBM Cloud](https://cloud.ibm.com). Also see the [ansible-collection-ibm](https://github.com/IBM-Cloud/ansible-collection-ibm).
 
-Ansible playbooks to install basic utils for working with bluemix: bx, kubectl, docker, cf, etc. This solves the problem of collecting and installing the client utilities which are typically distributed as binaries in tarballs available over https.
+Most require an ansible inventory file.
+
+Inventory:
+
+```shell
+cat inventory
+[hosts]
+192.168.0.5 ansible_ssh_user=ubuntu
+```
+
+
+## `bootstrap_python.sh`
+
+Description: This script will install python on ubuntu hosts, needed for other playbooks.
+
+Usage:
+
+```bash
+./bootstrap_python.sh <ip>
+```
+
+## `first-config.yml`
+
+Description: This playbook will do first-run configuration for IBM Cloud VMs including securing ssh, installing basic packages, etc.
+
+Usage:
+
+```bash
+ansible-playbook -i inventory first-config.yml
+```
+
+### Developer Utilities
+
+Ansible playbooks to install basic developer utilities for working with bluemix: bx, kubectl, docker, cf, etc. This solves the problem of collecting and installing the client utilities which are typically distributed as binaries in tarballs available over https.
 
 | Software | Org | command(s)  | version  |
 |--:|---|---|---|
