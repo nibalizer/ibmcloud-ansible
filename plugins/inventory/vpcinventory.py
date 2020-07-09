@@ -5,7 +5,7 @@ from ansible.module_utils._text import to_native
 from ansible.plugins.inventory import BaseInventoryPlugin
 from ansible.utils.display import Display
 from ibm_cloud_sdk_core.authenticators import IAMAuthenticator
-from ibm_vpc import VpcV1 # unreleased code woot
+from ibm_vpc import VpcV1
 
 display = Display()
 
