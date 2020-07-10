@@ -3,7 +3,7 @@ ibmcloud-ansible
 
 Ansible playbooks and utilities for working with the [IBM Cloud](https://cloud.ibm.com). Also see the [ansible-collection-ibm](https://github.com/IBM-Cloud/ansible-collection-ibm).
 
-Most require an ansible inventory file. We provide a [dynamic inventory script](https://github.com/nibalizer/ibmcloud-ansible#dynamic-inventory) for IBM Cloud VPC.
+Most require an ansible inventory file. You can create one easily as below or we provide a [dynamic inventory script](https://github.com/nibalizer/ibmcloud-ansible#dynamic-inventory) for IBM Cloud VPC.
 
 Inventory:
 
