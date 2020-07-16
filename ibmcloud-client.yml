@@ -3,6 +3,12 @@
   become: true
   vars:
     ibmcloud_unix_user: "root"
+    ibmcloud_plugins:
+      - kubernetes-service
+      - cloud-functions
+      - container-registry
+      - vpc-infrastructure
+      - cloud-object-storage
   tasks:
   - debug: msg="Installing ibmcloud client utility and plugins"
 
@@ -34,9 +40,4 @@
   - name: install ibmcloud plugins
     command: ibmcloud plugin install "{{ item }}" -r Bluemix
     become_user: " {{ ibmcloud_unix_user }} "
-    with_items:
-      - kubernetes-service
-      - cloud-functions
-      - container-registry
-      - vpc-infrastructure
-      - cloud-object-storage
+    with_items: ibmcloud_plugins
